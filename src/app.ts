@@ -1,12 +1,15 @@
 import 'reflect-metadata';
 import 'dotenv/config';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
+import 'express-async-errors';
 import { router } from './routes';
 
 import './database';
 
 import './shared/container';
 import { createConnection } from 'typeorm';
+
+import { AppError } from './shared/errors/AppError';
 
 createConnection();
 
@@ -15,5 +18,20 @@ const app = express();
 app.use(express.json());
 
 app.use(router);
+
+app.use(
+	(err: Error, request: Request, response: Response, next: NextFunction) => {
+		if (err instanceof AppError) {
+			return response.status(err.statusCode).json({
+				message: err.message,
+			});
+		}
+		return response.status(500).json({
+			status: 'error',
+			message: `Internal server error - ${err.message}`,
+		});
+		next();
+	}
+);
 
 export { app };
