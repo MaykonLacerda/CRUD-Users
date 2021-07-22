@@ -10,10 +10,9 @@ constructor(
   private usersRepository: IUsersRepository
 ) {}
 
-  async execute({ name, username, password, email }: ICreateUserDTO): Promise<void> {
+  async execute({ name, password, email }: ICreateUserDTO): Promise<void> {
     await this.usersRepository.create({
       name, 
-      username, 
       password, 
       email
     })
