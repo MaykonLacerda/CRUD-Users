@@ -1,8 +1,8 @@
 import { verify, sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
-import { AppError } from '../../../shared/errors/AppError';
-import { IDateProvider } from '../../../shared/providers/dateProvider/IDateProvider';
-import { IUsersTokenRepository } from '../repositories/IUsersTokenRepository';
+import { AppError } from '../../../../shared/errors/AppError';
+import { IDateProvider } from '../../../../shared/providers/dateProvider/IDateProvider';
+import { IUsersTokenRepository } from '../../repositories/IUsersTokenRepository';
 
 interface IPayLoad {
   sub: string;

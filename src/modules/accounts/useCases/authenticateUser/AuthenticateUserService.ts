@@ -2,10 +2,10 @@ import { inject, injectable } from "tsyringe";
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
-import { AppError } from "../../../shared/errors/AppError";
-import { IUsersRepository } from "../repositories/IUsersRepository";
-import { IUsersTokenRepository } from "../repositories/IUsersTokenRepository";
-import { IDateProvider } from "../../../shared/providers/dateProvider/IDateProvider";
+import { AppError } from "../../../../shared/errors/AppError";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { IUsersTokenRepository } from "../../repositories/IUsersTokenRepository";
+import { IDateProvider } from "../../../../shared/providers/dateProvider/IDateProvider";
 
 
 interface IRequest {
