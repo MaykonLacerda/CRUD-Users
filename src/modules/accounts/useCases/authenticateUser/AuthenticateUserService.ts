@@ -54,10 +54,10 @@ class AuthenticateUserService {
 
     const refresh_token = sign({ email }, `${process.env.REFRESH_TOKEN}`, {
       subject: user.id,
-      expiresIn: `${process.env.ESPIRES_REFRESH_TOKEN}`
+      expiresIn: `${process.env.EXPIRES_REFRESH_TOKEN}`
     });
 
-    const refresh_token_date = this.dateProvider.addDays(parseInt(`${process.env.ESPIRES_REFRESH_TOKEN_DAYS}`));
+    const refresh_token_date = this.dateProvider.addDays(parseInt(`${process.env.EXPIRES_REFRESH_TOKEN_DAYS}`));
 
     await this.usersTokenRepository.create({
       user_id: user.id,

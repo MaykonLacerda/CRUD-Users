@@ -34,10 +34,10 @@ class RefreshTokenService {
     
     const refresh_token = sign({ email }, `${process.env.REFRESH_TOKEN}`, {
       subject: sub,
-      expiresIn: `${process.env.ESPIRES_REFRESH_TOKEN}`
+      expiresIn: `${process.env.EXPIRES_REFRESH_TOKEN}`
     });
     
-    const expires_date = this.dateProvider.addDays(parseInt(`${process.env.ESPIRES_REFRESH_TOKEN_DAYS}`));
+    const expires_date = this.dateProvider.addDays(parseInt(`${process.env.EXPIRES_REFRESH_TOKEN_DAYS}`));
 
 
     await this.usersTokenRepository.create({

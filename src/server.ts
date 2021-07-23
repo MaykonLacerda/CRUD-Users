@@ -6,4 +6,4 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 dayjs.extend(weekOfYear);
 dayjs.extend(advancedFormat);
 
-app.listen(process.env.NODE_PORT, () => console.log(' ⚡ Node server proudly running on port ' + `${process.env.NODE_PORT}` + ' ⚡'));
+app.listen(process.env.NODE_PORT || 3333, () => console.log(' ⚡ Node server proudly running on port ' + `${process.env.NODE_PORT}` + ' ⚡'));
