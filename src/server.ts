@@ -1,3 +1,9 @@
 import { app } from './app';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
 
-app.listen(process.env.NODE_PORT, () => console.log(`Server is running on port ${process.env.NODE_PORT}`));
+dayjs.extend(weekOfYear);
+dayjs.extend(advancedFormat);
+
+app.listen(process.env.NODE_PORT, () => console.log(' ⚡ Node server proudly running on port ' + `${process.env.NODE_PORT}` + ' ⚡'));

@@ -7,6 +7,7 @@ import { router } from './routes';
 import './database';
 
 import './shared/container';
+import './shared/providers/dateProvider';
 import { createConnection } from 'typeorm';
 
 import { AppError } from './shared/errors/AppError';

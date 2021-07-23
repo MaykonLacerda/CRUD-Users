@@ -15,7 +15,7 @@ class User {
   @Column()
   email: string;
 
-  @Column()
+  @CreateDateColumn()
   created_at: Date;
   
   constructor() {
