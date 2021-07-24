@@ -33,10 +33,12 @@ class ResetPasswordUserService {
     }
 
     const user = await this.userRepository.findById(userToken.user_id);
-
-    user.password = password;
     
-    await this.userRepository.create(user);
+    const passwordHash = await hash(password, 8);
+
+    user.password = passwordHash;
+    
+    await this.userRepository.updatePassword(user.password, userToken.user_id);
 
     await this.usersTokenRepository.deleteById(userToken.id);
   }
