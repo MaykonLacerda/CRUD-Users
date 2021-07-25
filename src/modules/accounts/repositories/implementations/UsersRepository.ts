@@ -21,19 +21,36 @@ class UsersRepository implements IUsersRepository {
   }
   
   async updatePassword(password: string, user_id: string): Promise<UpdateResult> {
-
+    
     const user = await this.repository.update({id: user_id}, {password});
     
     return user;
   }
-
+  
   async findByEmail(email: string): Promise<User> {
     const user = await this.repository.findOne({ email });
     return user;
   }
   
   async findById(id: string): Promise<User> {
-    const user = await this.repository.findOne(id);
+    const user = await this.repository.findOne({ id });
+    return user;
+  }
+  
+  async list(): Promise<User[]> {
+    const users = await this.repository.find();
+    
+    return users;
+  }
+  
+  async deleteById(id: string): Promise<void> {
+    
+    await this.repository.delete({ id });
+  }
+  
+  async updateName(id: string, name: string): Promise<UpdateResult> {
+    const user = await this.repository.update({ id }, { name });
+    
     return user;
   }
 }
