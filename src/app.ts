@@ -21,6 +21,8 @@ app.use(express.json());
 
 app.use(router);
 
+app.get('/', (request, response) => response.json({ message: 'crud-users' }));
+
 app.use(
 	(err: Error, request: Request, response: Response, next: NextFunction) => {
 		if (err instanceof AppError) {
