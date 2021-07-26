@@ -42,7 +42,11 @@ class SendForgotPasswordMailService {
       link: `${process.env.FORGOT_MAIL_URL}${token}`
     }
 
+    const link = variables.link;
+
     await this.mailProvider.sendMail(email, "Recuperação de senha", `Olá ${variables.name}, o link para a troca de senha é: ${variables.link}`);
+
+    return link;
   }
 }
 

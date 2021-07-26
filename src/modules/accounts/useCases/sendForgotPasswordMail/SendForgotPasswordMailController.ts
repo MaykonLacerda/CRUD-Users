@@ -10,9 +10,9 @@ class SendForgotPasswordMailController {
     
     const sendForgotPasswordMailService = container.resolve(SendForgotPasswordMailService);
 
-    await sendForgotPasswordMailService.execute(email);
+    const URLToReset = await sendForgotPasswordMailService.execute(email);
 
-    return res.send();
+    return res.status(200).json({message:`Cole este link na URL do endpoint de resetar password: ${URLToReset}`});
   }
 }
 
