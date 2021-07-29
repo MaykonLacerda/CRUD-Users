@@ -15,7 +15,7 @@ class UpdateUsersService {
 
     user.name = name;
 
-    await this.usersRepository.updateName(user.name, id);
+    await this.usersRepository.updateName(id, user.name);
 
     return user;
   }
